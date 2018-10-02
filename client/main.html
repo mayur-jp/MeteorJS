@@ -1,0 +1,52 @@
+
+
+<head>
+  <title>Forum</title>
+</head>
+
+<body>
+  {{> postForm}}
+  {{> posts}}
+</body>
+
+<template name="postForm">
+ <h1>Posts</h1>
+  <div class="form-group">
+     <label class="control-label">Create post</label>
+     <div class="input-group">
+     <form>
+        <input type="text" id="content" name="content" class="form-control">
+        <span class="input-group-btn">
+          <button class="btn btn-success" type="submit" id="createPost">Create</button>
+          
+
+        </span>
+        </form>
+     </div>
+  </div>
+</template>
+
+
+<template name="posts">
+  {{#each Languages}}
+    {{> post}}
+  {{/each}}
+</template>
+
+
+
+<template name="post">
+  {{#if editing}}
+    <input type="text" id="newvalue" value="{{name}}"/>
+  {{else}}
+    <p>
+     <span class="content col-md-10" id="edit" >{{_id}} </span> || 
+      <span class="content col-md-10" id="editid" >{{name}} </span>
+      <button class="btn btn-sm btn-danger" id="delete" type="submit" value="{{_id}}">Delete</button>
+        
+    </p>
+    {{/if}}
+</template>
+
+
+
